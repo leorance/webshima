@@ -1,0 +1,31 @@
+/*---------------------------------------
+ Program section              
+-----------------------------------------*/
+#program h4 {
+  color: #808080;
+  font-size: 12px;
+}
+
+#program h3 {
+  margin-top: 16px;
+}
+
+#program .program-divider {
+  border: 1px solid #f9f9f9;
+  margin-top: 32px;
+  margin-bottom: 42px;
+}
+
+#program span {
+  padding-right: 12px;
+}
+
+.load-container {
+  .mat-spinner::ng-deep circle {
+    stroke: darkslategrey;
+  }
+}
+
+.load {
+  left: 50%;
+}

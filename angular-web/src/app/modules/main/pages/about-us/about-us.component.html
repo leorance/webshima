@@ -1,0 +1,50 @@
+<!-- =========================
+    ABOUT US SECTION   
+============================== -->
+<section id="overview" class="parallax-section">
+	<div class="container">
+		<div class="row">
+			<div class="wow fadeInUp col-md-12 col-sm-12" data-wow-delay="0.6s">
+				<div class="section-title">
+					<h2>About Us</h2>
+				</div>
+			</div>
+
+			<div class="wow fadeInUp col-md-12 col-sm-12" data-wow-delay="0.9s">
+				<mat-tab-group animationDuration="500ms" (selectedIndexChange)="onChangeTabIndex($event)" class="about-us-tab"
+					[(selectedIndex)]="selectedTabIndex" disableRipple>
+					<mat-tab>
+						<ng-template mat-tab-label class="nav nav-tabs">
+							<span class="tab-text">Introduction</span>
+						</ng-template>
+						<ng-template matTabContent>
+							<app-introduction></app-introduction>
+						</ng-template>
+					</mat-tab>
+					<mat-tab>
+						<ng-template mat-tab-label class="nav nav-tabs">
+							<span class="tab-text">Remarks</span>
+						</ng-template>
+						<ng-template matTabContent>
+							<app-remarks></app-remarks>
+						</ng-template>
+					</mat-tab>
+					<mat-tab>
+						<ng-template mat-tab-label class="nav nav-tabs">
+							<span class="tab-text">Our Team</span>
+						</ng-template>
+						<ng-template matTabContent>
+							<app-our-team></app-our-team>
+						</ng-template>
+					</mat-tab>
+				</mat-tab-group>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="detail" class="parallax-section">
+	<div class="container">
+		<div class="row">
+    </div>
+	</div>
+</section>

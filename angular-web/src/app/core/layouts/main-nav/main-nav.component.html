@@ -1,0 +1,86 @@
+<mat-sidenav-container style="position: initial; width: 100%; z-index: 999;">
+  <mat-sidenav #sideNav role="navigation" fixedInViewport="true" style="width: 100%; background-color: black;">
+    <mat-toolbar class="custom-navbar">
+      <div class="navbar-brand-colapse" [routerLink]="['/main/intro']" style="cursor: pointer">
+        <span>HMSI ITHB</span>
+      </div>
+      <span class="spacer"></span>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sideNav.toggle()"
+        *ngIf="isHandset$ | async" style="color: white; background-color: transparent;">
+        <mat-icon aria-label="Side nav toggle icon">close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list class="padding-left-16" style="padding-top: 0">
+      <div style="color: white;">
+        <ul class="nav navbar-nav">
+          <li><a [routerLink]="['/main/intro']" [routerLinkActive]="'active'" (click)="sideNav.toggle()" class="smoothScroll">Intro</a></li>
+          <li><a [routerLink]="['/main/about-us']" [routerLinkActive]="'active'" (click)="sideNav.toggle()" class="smoothScroll">About Us</a></li>
+          <li><a [routerLink]="['/main/winner']" [routerLinkActive]="'active'" (click)="sideNav.toggle()" class="smoothScroll">The Winner</a></li>
+          <!-- <li><a [routerLink]="['/main/candidate']" [routerLinkActive]="'active'" (click)="sideNav.toggle()" class="smoothScroll">Candidate</a></li>
+          <li><a [routerLink]="['/main/pre-event']" [routerLinkActive]="'active'" (click)="sideNav.toggle()" class="smoothScroll">Pre-Event</a></li> -->
+          <li *ngIf="isUserLoggedIn()">
+            <a [routerLink]="['/main/activity']" [routerLinkActive]="'active'" (click)="sideNav.toggle()" class="smoothScroll">Activity</a>
+          </li>
+          <li *ngIf="!isUserLoggedIn()" >
+            <a [routerLink]="['/main/register']" [routerLinkActive]="'active'" (click)="sideNav.toggle()" class="smoothScroll">Register</a>
+          </li>
+          <li [routerLink]="['/login']" (click)="sideNav.toggle()" *ngIf="!isUserLoggedIn()">
+            <button name="login" class="form-control button-submit">MASUK</button>
+          </li>
+          <li (click)="sideNav.toggle()" *ngIf="isUserLoggedIn()">
+            <button name="logout" class="form-control button-submit" *ngIf="!onSubmittingForm" (click)="logout()">LOGOUT</button>
+            <button name="logout" class="form-control button-submit" [disabled]="true" *ngIf="onSubmittingForm">
+							<div fxLayout="row" fxLayoutAlign="center center">
+								<div class="login-spinner">
+									<mat-spinner diameter="16" color="accent"></mat-spinner>
+								</div>
+								<div class="margin-left-5">loading</div>
+							</div>
+						</button>
+          </li>
+        </ul>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="custom-navbar">
+      <div class="navbar-brand" [routerLink]="['/main/intro']" style="cursor: pointer">
+        <span>HMSI ITHB</span>
+      </div>
+      <span class="spacer"></span>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sideNav.toggle()"
+        *ngIf="isHandset$ | async" style="color: white; background-color: transparent;">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div *ngIf="!isHandset">
+        <ul class="nav navbar-nav">
+          <li><a [routerLink]="['/main/intro']" [routerLinkActive]="'active'" class="smoothScroll">Intro</a></li>
+          <li><a [routerLink]="['/main/about-us']" [routerLinkActive]="'active'" class="smoothScroll">About Us</a></li>
+          <li><a [routerLink]="['/main/winner']" [routerLinkActive]="'active'" class="smoothScroll">The Winner</a></li>
+          <!-- <li><a [routerLink]="['/main/candidate']" [routerLinkActive]="'active'" class="smoothScroll">Candidate</a></li>
+          <li><a [routerLink]="['/main/pre-event']" [routerLinkActive]="'active'" class="smoothScroll">Pre-Event</a></li> -->
+          <li *ngIf="isUserLoggedIn()">
+            <a [routerLink]="['/main/activity']" [routerLinkActive]="'active'" class="smoothScroll">Activity</a>
+          </li>
+          <li *ngIf="!isUserLoggedIn()">
+            <a [routerLink]="['/main/register']" [routerLinkActive]="'active'" class="smoothScroll">Register</a>
+          </li>
+          <li [routerLink]="['/login']" *ngIf="!isUserLoggedIn()">
+            <button name="login" class="form-control button-submit">LOGIN</button>
+          </li>
+          <li *ngIf="isUserLoggedIn()">
+            <button name="logout" class="form-control button-submit" *ngIf="!onSubmittingForm" (click)="logout()">LOGOUT</button>
+            <button name="logout" class="form-control button-submit" [disabled]="true" *ngIf="onSubmittingForm">
+							<div fxLayout="row" fxLayoutAlign="center center">
+								<div class="login-spinner">
+									<mat-spinner diameter="16" color="accent"></mat-spinner>
+								</div>
+								<div class="margin-left-5">loading</div>
+							</div>
+						</button>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

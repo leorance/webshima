@@ -1,0 +1,39 @@
+.form-border {
+  background: transparent;
+  border: 2px solid black;
+  border-radius: 0px;
+  padding: 10px;
+  width: 100%;
+}
+
+.button-submit {
+  background: #f2545f;
+  border-radius: 100px;
+  border: none;
+  color: #ffffff;
+  letter-spacing: 2px;
+  height: 50px;
+  margin-top: 12px;
+  transition: all 0.4s ease-in-out;
+}
+
+.button-submit:hover {
+  background: #222;
+  color: #fff;
+}
+
+.verify-spinner {
+  .mat-spinner::ng-deep circle {
+    stroke: #fff;
+  }
+}
+
+.send-code-spinner {
+  .mat-spinner::ng-deep circle {
+    stroke: #222;
+  }
+}
+
+.font-bold {
+  font-weight: 500;
+}

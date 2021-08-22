@@ -1,0 +1,30 @@
+<section id="program" class="parallax-section">
+	<div class="container">
+    <div *ngIf="loading" class="load-container margin-top-32">
+      <mat-spinner class="load"></mat-spinner>
+    </div>
+		<div class="row" *ngIf="!loading">
+			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
+				<div class="section-title">
+					<h3>Selamat Kepada {{candidateData[0].name_pres}} dan {{candidateData[0].name_vicepres}}</h3>
+					<p>Atas terpilihnya sebagai ketua dan wakil ketua himpunan periode 2020 - 2021</p>
+				</div>
+			</div>
+
+			<div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
+        <div class="col-md-11 col-xs-12 margin-top-20">
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <div class="col-md-4 col-xs-5">
+                <img [src]="candidateData[0].photo_pres" class="img-responsive" alt="ketua-paslon{{candidateData[0].choose_number}}">
+              </div>
+              <div class="col-md-4 col-xs-5">
+                <img [src]="candidateData[0].photo_vicepres" class="img-responsive" alt="wakil-paslon{{candidateData[0].choose_number}}">
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+</section>

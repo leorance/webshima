@@ -1,0 +1,89 @@
+<section id="login">
+	<div class="mask">
+		<div class="login-container">
+			<div class="circle background"></div>
+			<div class="login">
+				<h1>Login</h1>
+				<form [formGroup]="loginForm" autocomplete="off">
+					<div class="padding-bottom-16">
+						<input matInput placeholder="NIM / NIK" class="form-border" type="tel" formControlName="nim"
+							[pattern]="constants.nimInput.pattern" maxlength="7"/>
+						<mat-error class="bottom-error" *ngIf="nim.invalid && (nim.dirty || nim.touched)">
+							<span *ngIf="nim.errors.required">NIM / NIK harus diisi</span>
+							<span *ngIf="!nim.errors.required">Format NIM / NIK yang dimasukan salah</span>
+						</mat-error>
+					</div>
+	
+					<div class="padding-bottom-16">
+						<input matInput placeholder="Password" class="form-border" type="password" formControlName="password"/>
+						<mat-error class="bottom-error" *ngIf="password.invalid && (password.dirty || password.touched)">
+							<span *ngIf="password.errors.required">Password harus diisi</span>
+							<span *ngIf="!password.errors.required">Format Password yang dimasukan salah</span>
+						</mat-error>
+					</div>
+					
+					<div class="col-md-12 col-sm-12">
+						<button name="submit" class="btn btn-primary btn-block btn-large" [disabled]="!loginForm.valid" *ngIf="!onSubmittingForm"
+							(click)="login()">LOGIN</button>
+						<button name="submit" class="btn btn-primary btn-block btn-large" [disabled]="true" *ngIf="onSubmittingForm">
+							<div fxLayout="row" fxLayoutAlign="center center">
+								<div class="login-spinner">
+									<mat-spinner diameter="20" color="accent"></mat-spinner>
+								</div>
+								<div class="margin-left-5">loading</div>
+							</div>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="copy"><a [routerLink]="['/']">Back to <b>hmsiithb.com</b></a></div>
+</section>
+
+
+<!-- <section id="register" class="parallax-section" ng-view autoscroll>
+	<div class="container">
+		<div class="row">
+			<div class="wow fadeInUp col-md-12 col-sm-12" data-wow-delay="0.6s">
+				<h2>LOGIN</h2>
+				<h3>Pemilihan ketua dan wakil ketua hima periode 2020-2021 akan dilaksanakan secara online. Oleh karena itu agar partisipan diharapkan login terlebih dahulu agar dapat memilih.</h3>
+				<p>Harap isi data dengan sesuai! Jika tidak dapat login dapat menghubungi pengurus HIMA.</p>
+			</div>
+			<div class="wow fadeInUp col-md-5 col-md-offset-3 col-sm-offset-3 col-sm-5 margin-top-24" data-wow-delay="1s">
+				<form [formGroup]="loginForm" autocomplete="off">
+					<div class="padding-bottom-16">
+						<input matInput placeholder="NIM" class="form-border" type="tel" formControlName="nim"
+							[pattern]="constants.nimInput.pattern" [mask]="constants.nimInput.mask"/>
+						<mat-error class="bottom-error" *ngIf="nim.invalid && (nim.dirty || nim.touched)">
+							<span *ngIf="nim.errors.required">NIM harus diisi</span>
+							<span *ngIf="!nim.errors.required">Format NIM yang dimasukan salah</span>
+						</mat-error>
+					</div>
+
+					<div class="padding-bottom-16">
+						<input matInput placeholder="Password" class="form-border" type="password" formControlName="password"/>
+						<mat-error class="bottom-error" *ngIf="password.invalid && (password.dirty || password.touched)">
+							<span *ngIf="password.errors.required">Password harus diisi</span>
+							<span *ngIf="!password.errors.required">Format Password yang dimasukan salah</span>
+						</mat-error>
+					</div>
+					
+					<div class="col-md-12 col-sm-12">
+						<button name="submit" class="form-control button-submit" [disabled]="!loginForm.valid" *ngIf="!onSubmittingForm"
+							(click)="login()">LOGIN</button>
+						<button name="submit" class="form-control button-submit" [disabled]="true" *ngIf="onSubmittingForm">
+							<div fxLayout="row" fxLayoutAlign="center center">
+								<div class="login-spinner">
+									<mat-spinner diameter="20" color="accent"></mat-spinner>
+								</div>
+								<div class="margin-left-5">loading</div>
+							</div>
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+</section> -->

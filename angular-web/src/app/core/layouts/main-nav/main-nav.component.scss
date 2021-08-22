@@ -1,0 +1,104 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.custom-navbar {
+  margin-bottom: 0;
+  background-color: #101010;
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 40px;
+  padding: 7px 0px 0px 15px;
+}
+
+.custom-navbar .navbar-brand-colapse {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 40px;
+  padding: 7px 0px 0px 0px;
+}
+
+.custom-navbar .navbar-nav {
+  margin-right: 15px;
+}
+
+.custom-navbar .nav li a {
+  color: #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  line-height: 40px;
+  transition: all 0.4s ease-in-out;
+}
+
+.custom-navbar .nav li a:hover {
+  background: transparent;
+  color: #66ccff;
+}
+
+.custom-navbar .navbar-nav > li > a:hover,
+.custom-navbar .navbar-nav > li > a:focus {
+  background-color: transparent;
+}
+
+.active {
+  background-color: transparent;
+  color: #66ccff !important;
+}
+
+.custom-navbar .navbar-toggle {
+  border: none;
+  padding-top: 10px;
+}
+
+.custom-navbar .navbar-toggle {
+  background-color: transparent;
+}
+
+.custom-navbar .navbar-toggle .icon-bar {
+  background: #ffffff;
+  border-color: transparent;
+}
+
+@media(min-width:768px) {
+  .custom-navbar {
+    padding: 20px 0;
+    border-bottom: 0;
+    background-color: #101010;
+  }
+}
+
+.custom-navbar .nav li a {
+  font-size: 11px;
+  line-height: 20px;
+}
+
+.button-submit {
+  background: #f2545f;
+  border-radius: 100px;
+  border: none;
+  color: #ffffff;
+  letter-spacing: 2px;
+  height: 30px;
+  margin-top: 12px;
+  transition: all 0.4s ease-in-out;
+  width: 100px;
+  font-size: 12px;
+}
+
+.button-submit:hover {
+  background: #ffffff;
+  color: #222;
+}
+
+.login-spinner {
+  .mat-spinner::ng-deep circle {
+    stroke: #fff;
+  }
+}

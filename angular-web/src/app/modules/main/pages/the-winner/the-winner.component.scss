@@ -1,0 +1,9 @@
+.load-container {
+  .mat-spinner::ng-deep circle {
+    stroke: darkslategrey;
+  }
+}
+
+.load {
+  left: 50%;
+}

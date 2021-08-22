@@ -1,0 +1,179 @@
+@import '~src/assets/styles/colors';
+@import '~src/assets/styles/fonts';
+
+$black: map-get($colors, black);
+$white: map-get($colors, white);
+$gray: map-get($colors, gray);
+$navy: map-get($colors, navy);
+$orange: map-get($colors, orange);
+$light-gray: map-get($colors, light-gray);
+
+.sidenav-container {
+  height: 100%;
+  position: unset;
+  .mat-sidenav-content{
+    background-color: $light-gray;
+  }
+}
+
+.sidenav {
+  width: 240px;
+  box-shadow: 0px 0px 5px 0px #000;
+}
+
+.sidenav-bottom {
+  color: $navy;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+::ng-deep .nav-panel .mat-expansion-panel-body {
+  padding: 0 !important;
+  background-color: $white;
+  color: $black;
+}
+
+::ng-deep .nav-panel .mat-list-item-content {
+  padding: 0 24px !important;
+  font-size: 13px;
+  background-color: $white;
+  color: $black;
+}
+
+::ng-deep .mat-list-item {
+  height: 40px !important;
+}
+
+::ng-deep .nav-panel .mat-list-item-content:hover {
+  background-color: rgba(160, 160, 160, 0.4);
+}
+
+mat-nav-list {
+  padding: 0 !important;
+}
+
+.mat-expansion-panel {
+  box-shadow: none;
+  border-radius: 0;
+  background-color: $white;
+}
+
+::ng-deep .nav-panel .mat-expansion-indicator:after {
+  color: $black;
+}
+
+.mat-expansion-panel-header-title {
+  color: $black;
+  letter-spacing: 0.15px;
+}
+
+.mat-expansion-panel-header {
+  background: $white;
+}
+
+.mat-expansion-panel-header:hover {
+  background-color: rgba(160, 160, 160, 0.4) !important;
+}
+
+.mat-divider {
+  border-top-color:#A9A9A9;
+}
+
+.mat-drawer-container {
+  background-color: $black;
+}
+
+::ng-deep .mat-drawer-inner-container {
+ background-color: $white;
+}
+
+::ng-deep .active-nav .mat-list-item-content {
+  color: $orange !important;
+}
+
+::ng-deep .parent-nav.mat-list-item {
+  height: 50px !important;
+}
+
+::ng-deep .parent-nav .mat-list-item-content {
+  color: $black;
+  letter-spacing: 0.15px;
+  font-size: 15px;
+  padding: 0 24px !important;
+}
+
+::ng-deep .parent-nav.mat-list-item:hover {
+  background-color: rgba(160, 160, 160, 0.4) !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.name-text {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: $gray;
+}
+
+.role-text {
+  font-style: normal;
+  line-height: normal;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $white;
+}
+
+.profile-circle{
+  background-color: #C4C4C4;
+  border-radius: 50%;
+}
+
+.profile-circle mat-icon{
+  padding-top: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: #6B6B6B;
+}
+
+.arrow-icon {
+  color: $white; 
+  display: flex; 
+  margin-left: 10px;
+}
+
+mat-toolbar{
+  border-bottom: 1px solid $gray;
+}
+
+.mat-expansion-panel-header {
+  color: #000;
+}
+
+::ng-deep .cdk-overlay-pane {
+  display: flex;
+  justify-content: flex-end;
+}
+
+::ng-deep .cdk-overlay-connected-position-bounding-box{
+  top: 42px !important;
+  position: absolute;
+  z-index: 1;
+  height: auto !important;
+  min-width: 150px !important;
+  right: 15px;
+  left: auto !important;
+}

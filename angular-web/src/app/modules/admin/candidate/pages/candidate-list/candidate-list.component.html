@@ -1,0 +1,65 @@
+
+<div fxFlex="100%" *ngIf="isLoading" class="loading-container">
+  <mat-spinner class="loading"></mat-spinner>
+</div>
+<div fxLayout="row wrap" style="width: 100%;" *ngIf="!isLoading">
+  <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start center" class="padding-16">
+    <h2>List Candidate</h2>
+  </div>
+  <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start center" class="padding-16">
+    <button mat-raised-button color="primary" (click)="createCandidate()">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-icon>add</mat-icon>
+        <div class="margin-left-5">Buat Candidate Baru</div>
+      </div>
+    </button>
+  </div>
+
+  <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start center" fxLayoutGap.lt-md="5px grid">
+    <div fxLayout="column" fxFlex="100%" *ngFor="let candidate of candidateData" class="margin-16">
+      <mat-card class="card-container" fxLayout="row" [ngStyle]="{'background-color': candidate.status === 1 ? 'white' : '#F5F5F5' }">
+        <div fxFlex="grow" fxLayout="column" fxLayoutGap="4px">
+          <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap.lt-md="5px grid">
+            <div fxFlex="50%" fxFlex.lt-md="100%" fxLayoutAlign="start center" fxLayoutGap="16px grid" fxLayoutGap.lt-md="5px grid">
+              <div fxFlex="30%" fxLayoutAlign="center center">
+                <img [src]="candidate.photo_pres" style="max-height: 150px; max-width: -webkit-fill-available;"/>
+              </div>
+              <div fxLayout="column" fxFlex="70%">
+                <h4>{{candidate.name_pres}}</h4>
+                <span>{{candidate.motto_pres}}</span>
+              </div>
+            </div>
+            <div fxFlex="50%" fxFlex.lt-md="100%" fxLayoutAlign="start center" fxLayoutGap="16px grid" fxLayoutGap.lt-md="5px grid">
+              <div fxFlex="30%" fxLayoutAlign="center center">
+                <img [src]="candidate.photo_vicepres" style="max-height: 150px; max-width: -webkit-fill-available;"/>
+              </div>
+              <div fxLayout="column" fxFlex="70%">
+                <h4>{{candidate.name_vicepres}}</h4>
+                <span>{{candidate.motto_vicepres}}</span>
+              </div>
+            </div>
+          </div>
+          <div fxFlex="grow" fxLayout="column" fxLayoutGap="4px">
+            <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap.lt-md="5px grid">
+              <div fxFlex="50%" fxFlex.lt-md="100%" fxLayout="column" fxLayoutAlign="center start">
+                <h4>Visi:</h4>
+                <span>{{candidate.vision}}</span>
+              </div>
+              <div fxFlex="50%" fxFlex.lt-md="100%" fxLayout="column" fxLayoutAlign="center start">
+                <h4>Misi:</h4>
+                <div [innerHTML]="candidate.mission"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <mat-icon (click)="updateCandidate(candidate.id)">edit</mat-icon>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div style="margin-top: 1%; width: 100%;" *ngIf="!candidateData">
+      <div>Candidate Tidak Tersedia</div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+/*---------------------------------------
+ Sponsors section              
+-----------------------------------------*/
+#overview img {
+  margin-top: 18px;
+  padding-bottom: 32px;
+}
+
+#detail {
+  background: #222;
+  color: #ffffff;
+}
+
+#detail .fa {
+color: #f2545f;
+font-size: 48px;
+}
+
+.about-us-tab {
+  ::ng-deep .mat-tab-label {
+    padding: 0;
+    justify-content: start;
+  }
+  ::ng-deep .mat-tab-list {
+    border-bottom: solid 1px #999;
+  }
+}

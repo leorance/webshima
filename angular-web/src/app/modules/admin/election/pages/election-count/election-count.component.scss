@@ -1,0 +1,23 @@
+.loading-container {
+  min-height: calc(100vh - 64px);
+  .mat-spinner::ng-deep circle {
+    stroke: darkslategrey;
+  }
+}
+
+.loading {
+  left: 50%;
+  top: calc(50% - 64px);
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+.margin-25 {
+  margin: 25px 0;
+}
+
+.text-align-center {
+  text-align: center;
+}

@@ -1,0 +1,97 @@
+<div class="margin-top-32">
+  <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
+    <h3>Hi {{getUserData().name}} !</h3>
+    <div *ngIf="getUserData().email_verified_at === null || getUserData().email_verified_at === undefined 
+      || getUserData().email_verified_at === ''" class="icon-verify">
+      <h3>Uuuoohhh.. You are not yet verified :(</h3>
+      <mat-icon class="margin-top-16" style="font-size: 50px; color: red;">block</mat-icon>
+    </div>
+    <div *ngIf="getUserData().email_verified_at" class="icon-verify">
+      <h3>Yeay! Now you are verified !</h3>
+      <mat-icon class="margin-top-16" style="font-size: 50px; color: green;">verified_user</mat-icon>
+    </div>
+  </div>
+  
+  <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.9s">
+    <ng-container *ngIf="getUserData().email_verified_at === null || getUserData().email_verified_at === undefined 
+      || getUserData().email_verified_at === ''">
+      <h4>Please get you verification code here.</h4>
+      <p>We will send 6 digits verification code to your e-mail ({{getUserData().email}}).</p>
+      <form [formGroup]="verificationForm" autocomplete="off">
+        <div class="padding-bottom-16">
+          <input matInput placeholder="Verification Code" class="form-border" type="tel" formControlName="verificationCode" 
+            [mask]="constants.verificationInput.mask" style="border: solid 1px; text-align: center;"/>
+          <mat-error class="bottom-error" *ngIf="verificationCode.invalid && (verificationCode.dirty || verificationCode.touched)">
+            <span *ngIf="verificationCode.errors.required">Verification Code wajib diisi</span>
+          </mat-error>
+        </div>
+  
+        <div class="col-md-12 col-sm-12">
+          <a name="sendCode" *ngIf="!isSendCode" (click)="onClickSendCode()">SEND CODE</a>
+          <a name="sendCode" *ngIf="isSendCode">
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="send-code-spinner">
+                <mat-spinner diameter="16" color="accent"></mat-spinner>
+              </div>
+              <div class="margin-left-5">loading</div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-12 col-sm-12">
+          <button name="verifyButton" class="form-control button-submit" [disabled]="!verificationForm.valid" *ngIf="!onSubmitingForm"
+            (click)="onClickVerify()">
+            VERIFY
+          </button>
+          <button name="verifyButton" class="form-control button-submit" [disabled]="true" *ngIf="onSubmitingForm">
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <div class="verify-spinner">
+                <mat-spinner diameter="20" color="accent"></mat-spinner>
+              </div>
+              <div class="margin-left-5">loading</div>
+            </div>
+          </button>
+        </div>
+      </form>
+    </ng-container>
+  
+    <div *ngIf="getUserData().email_verified_at" style="text-align: left;">
+      <h4>This is your profile info.</h4>
+      <p>If there is something wrong, please contact admin.</p>
+      <div class="padding-bottom-16">
+        <table style="line-height: 30px;">
+          <tr>
+            <td class="font-bold">NIM</td>
+            <td>:&nbsp;</td>
+            <td>{{getUserData().nim}}</td>
+          </tr>
+          <tr>
+            <td class="font-bold">Name</td>
+            <td>&nbsp;:&nbsp;</td>
+            <td>{{getUserData().name}}</td>
+          </tr>
+          <tr>
+            <td class="font-bold">E-mail</td>
+            <td>&nbsp;:&nbsp;</td>
+            <td>{{getUserData().email}}</td>
+          </tr>
+          <tr>
+            <td class="font-bold">Address</td>
+            <td>&nbsp;:&nbsp;</td>
+            <td>{{getUserData().address}}</td>
+          </tr>
+          <tr>
+            <td class="font-bold">Phone Number</td>
+            <td>&nbsp;:&nbsp;</td>
+            <td>{{getUserData().phone}}</td>
+          </tr>
+          <tr>
+            <td class="font-bold">Whatsapp Number</td>
+            <td>&nbsp;:&nbsp;</td>
+            <td>{{getUserData().phone_wa}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

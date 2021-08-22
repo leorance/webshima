@@ -1,0 +1,22 @@
+$font-sizes: (
+    super-headline: 56px,
+    headline: 32px,
+    sub-headline: 28px,
+    title: 24px,
+    sub-title: 22px,
+    content: 20px,
+    sub-content: 18px,
+    description: 16px,
+    sub-description: 14px,
+    tag: 12px,
+    sub-tag: 10px
+);
+
+@each $name, $value in $font-sizes {
+    .font-#{$name} {
+        font-size: $value;
+    }
+    .font-#{$name}-important {
+        font-size: $value !important;
+    }
+}

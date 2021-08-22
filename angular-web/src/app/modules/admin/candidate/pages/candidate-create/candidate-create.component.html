@@ -1,0 +1,166 @@
+<div fxLayout="column" style="min-height: 100%">
+  <div fxLayout="row wrap" class="page-title card-detail bottom-box-shadow padding-5 title-container" fxLayoutAlign="start center">
+    <button mat-icon-button (click)="goBack()"><mat-icon>close</mat-icon></button>
+    <span>Create Candidate</span>
+  </div>
+  <form [formGroup]="createCandidateForm" class="font-sub-description">
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Foto Ketua
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <input type="file" accept="image/*" type="file" formControlName="photo_pres" (change)="onFileSelected($event, constants.photoFlag.photoPres)"/>
+        <mat-error class="bottom-error" *ngIf="photo_pres.invalid && (photo_pres.dirty || photo_pres.touched)">
+          <span *ngIf="photo_pres.errors.required">Foto Ketua wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title"></div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <img *ngIf="photoPresUrl" [src]="photoPresUrl" style="max-height: 150px;"/>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Nama Ketua
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <input matInput placeholder="Ketik Nama Ketua" class="full-width-form input-form" required formControlName="name_pres" autocomplete="off">
+        <mat-error class="bottom-error" *ngIf="name_pres.invalid && (name_pres.dirty || name_pres.touched)">
+          <span *ngIf="name_pres.errors.required">Nama Ketua wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Motto Ketua
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <input matInput placeholder="Ketik Motto Ketua" class="full-width-form input-form" required formControlName="motto_pres" autocomplete="off">
+        <mat-error class="bottom-error" *ngIf="motto_pres.invalid && (motto_pres.dirty || motto_pres.touched)">
+          <span *ngIf="motto_pres.errors.required">Motto Ketua wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Foto Wakil Ketua
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <input type="file" accept="image/*" type="file" formControlName="photo_vicepres" (change)="onFileSelected($event, constants.photoFlag.photoVicePres)"/>
+        <mat-error class="bottom-error" *ngIf="photo_vicepres.invalid && (photo_vicepres.dirty || photo_vicepres.touched)">
+          <span *ngIf="photo_vicepres.errors.required">Foto Wakil Ketua wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title"></div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <img *ngIf="photoVicePresUrl" [src]="photoVicePresUrl" style="max-height: 150px;"/>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Nama Wakil Ketua
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <input matInput placeholder="Ketik Nama Wakil Ketua" class="full-width-form input-form" required formControlName="name_vicepres" autocomplete="off">
+        <mat-error class="bottom-error" *ngIf="name_vicepres.invalid && (name_vicepres.dirty || name_vicepres.touched)">
+          <span *ngIf="name_vicepres.errors.required">Nama Wakil Ketua wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Motto Wakil Ketua
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <input matInput placeholder="Ketik Motto Wakil Ketua" class="full-width-form input-form" required formControlName="motto_vicepres" autocomplete="off">
+        <mat-error class="bottom-error" *ngIf="motto_vicepres.invalid && (motto_vicepres.dirty || motto_vicepres.touched)">
+          <span *ngIf="motto_vicepres.errors.required">Motto Wakil Ketua wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Visi
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <textarea matTextareaAutosize placeholder="Ketik Visi" class="full-width-form input-form" required formControlName="vision" autocomplete="off"></textarea>
+        <mat-error class="bottom-error" *ngIf="vision.invalid && (vision.dirty || vision.touched)">
+          <span *ngIf="vision.errors.required">Visi wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Misi
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <editor [init]="tinyMceSettings" formControlName="mission" plugins="link" height="500px"></editor>
+        <mat-error class="bottom-error" *ngIf="mission.invalid && (mission.dirty || mission.touched)">
+          <span *ngIf="mission.errors.required">Misi wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Status
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <select formControlName="status" required class="input-form" style="background: white; width: 100%;">
+          <option value="">Pilih Status</option>
+          <option *ngFor="let candidateStatus of statusData" [value]="candidateStatus.id === constants.candidateStatus.active ? 1 : 0">
+            {{candidateStatus.value}}
+          </option>
+        </select>
+        <mat-error class="bottom-error" *ngIf="status.invalid && (status.dirty || status.touched)">
+          <span *ngIf="status.errors.required">Status wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="border-bottom-gray form-padding">
+      <div fxFlexAlign="center" fxFlex="20%" fxFlex.lt-md="30%" fxFlex.lt-lg="20%" fxFlex.lt-sm="100%" class="label-text-title">
+        Choose Number
+      </div>
+      <div fxFlex="40%" fxFlex.lt-md="60%" fxFlex.lt-lg="50%" fxFlex.lt-sm="100%">
+        <select formControlName="choose_number" required class="input-form" style="background: white; width: 100%;">
+          <option value="">Pilih Number</option>
+          <option *ngFor="let number of numberData" [value]="number">
+            {{number}}
+          </option>
+        </select>
+        <mat-error class="bottom-error" *ngIf="choose_number.invalid && (choose_number.dirty || choose_number.touched)">
+          <span *ngIf="choose_number.errors.required">Number wajib diisi</span>
+        </mat-error>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap" class="bottom-container title-container padding-top-16 padding-bottom-16">
+      <div fxFlex="100%" fxLayoutAlign="center center">
+        <button *ngIf="!onSubmittingForm" mat-raised-button color="primary" (click)="save()" style="margin-right: 16px; margin-left: 16px; width: 100%;"
+          [disabled]="!createCandidateForm.valid">Simpan</button>
+        <button mat-raised-button color="primary" [disabled]="true" *ngIf="onSubmittingForm" style="margin-right: 16px; margin-left: 16px; width: 100%;">
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div class="create-candidate-spinner">
+              <mat-spinner diameter="16"></mat-spinner>
+            </div>
+            <div class="margin-left-5">{{'loading' | translate}}</div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

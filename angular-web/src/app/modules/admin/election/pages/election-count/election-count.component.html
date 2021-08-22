@@ -1,0 +1,45 @@
+<div fxFlex="100%" class="loading-container" *ngIf="loading">
+  <mat-spinner class="loading"></mat-spinner>
+</div>
+
+<div fxLayout="column" fxFlex="100%" *ngIf="!loading" class="full-height">
+  <div class="col-md-12 col-sm-12 margin-25 text-align-center">
+    <div class="col-md-4 col-sm-12">
+      <h2>Paslon {{candidate1.choose_number}}</h2>
+      <h5>{{candidate1.name_pres}}</h5>
+      <h5>{{candidate1.name_vicepres}}</h5>
+      <h1 #animatedDigit1>
+        <span>{{displayDigit1}}</span>
+      </h1>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <h2>Paslon {{candidate2.choose_number}}</h2>
+      <h5>{{candidate2.name_pres}}</h5>
+      <h5>{{candidate2.name_vicepres}}</h5>
+      <h1 #animatedDigit2>
+        <span>{{displayDigit2}}</span>
+      </h1>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      <h2>Paslon {{candidate3.choose_number}}</h2>
+      <h5>{{candidate3.name_pres}}</h5>
+      <h5>{{candidate3.name_vicepres}}</h5>
+      <h1 #animatedDigit3>
+        <span>{{displayDigit3}}</span>
+      </h1>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="col-md-12 col-sm-12 margin-25" *ngIf="!startCount">
+    <div class="col-md-offset-4 col-sm-offset-2">
+      <button mat-raised-button color="primary" (click)="counterClicked()" style="width: 50%;">Start</button>
+    </div>
+  </div>
+  <div class="col-md-12 col-sm-12 margin-25 text-align-center">
+    <h1 #congratsMessage>{{showCongrats}}</h1>
+    <h3 #message></h3>
+    <h2 #winnerMsg></h2>
+    <h5 #pres></h5>
+    <h5 #vicePres></h5>
+  </div>
+</div>
